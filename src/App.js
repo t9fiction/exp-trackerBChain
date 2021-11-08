@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { AddTransaction } from './components/AddTransaction';
+import { Balance } from './components/Balance';
+import { History } from './components/History';
+import { IncomeExpense } from './components/IncomeExpense';
+import { Transaction } from './components/Transaction';
+import { TransactionList } from './components/TransactionList';
+import {useStore} from './store/GlobalState'
 
 function App() {
+
+  const {transactions} = useStore();
+  console.log(transactions,"Transactions")
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          Expense Tracker App
       </header>
-    </div>
+      <Balance />
+      <IncomeExpense />
+      <History />
+      <TransactionList />
+      <Transaction />
+      <AddTransaction />
+      </div>
   );
 }
 
