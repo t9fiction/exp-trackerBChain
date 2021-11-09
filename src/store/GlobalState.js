@@ -3,8 +3,8 @@ import AppReducer from './appReducer';
 
 const initialState = {
     transactions: [
-        { id: 1, product: "btoa", price: 100 },
-        { id: 2, product: "pulao", price: 200 }
+        { id: 1, product: "Mutton", amount: 100 },
+        { id: 2, product: "Pulao", amount: 200 }
     ]
 }
 

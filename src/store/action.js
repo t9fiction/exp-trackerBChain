@@ -6,15 +6,15 @@ export const addTransaction = (transaction) => {
     }
 }
 
-export const UpdateTransaction = (transaction) => {
-    return{
-        type: "UPDATE_TRANSACTION",
-        payload: transaction
-    }
-}
-export const DelTransaction = (id) => {
-    return{
-        type: "DELETE_TRANSACTION",
-        payload: id
-    }
-}
+// export const UpdateTransaction = (transaction) => {
+//     return{
+//         type: "UPDATE_TRANSACTION",
+//         payload: transaction
+//     }
+// }
+// export const DelTransaction = (id) => {
+//     return{
+//         type: "DELETE_TRANSACTION",
+//         payload: id
+//     }
+// }

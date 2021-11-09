@@ -1,31 +1,36 @@
 import { useState } from 'react';
 import { useStore } from '../store/GlobalState';
-import { addTransaction, UpdateTransaction } from '../store/action';
+import { addTransaction } from '../store/action';
 
 export const AddTransaction = () => {
-    const { transactions, dispatch } = useStore();
+    const { dispatch } = useStore();
     const [amount, setAmount] = useState(0);
-    const [value, setValue] = useState("");
+    const [product, setProduct] = useState("");
 
     console.log(dispatch, "Transactions")
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addTransaction(value))
+        const newTrans = {
+            id: Math.floor(Math.random() * 1000000),
+            product,
+            amount : +amount
+        }
+        dispatch(addTransaction(newTrans))
     }
 
     return (
         <div>
             <h3>Add New Transaction</h3>
             <form onClick={handleSubmit}>
-                {transactions.map(transactions => transactions.product)}
-                <br />
-                <label htmlFor="text">Product : </label>
-                <input type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter Product ..." />
-                <br />
-                <label htmlFor="amount">Amount : </label>
-                <input type="amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
-                <br />
+                <div className="form-control">
+                    <label htmlFor="text">Product : </label>
+                    <input type="text" value={product} onChange={(e) => setProduct(e.target.value)} placeholder="Enter Product ..." />
+                </div>
+                <div className="form-control">
+                    <label htmlFor="number">Amount : </label>
+                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                </div>
                 <button>Add Transaction</button>
             </form>
         </div>
